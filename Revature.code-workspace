@@ -1,0 +1,22 @@
+{
+    "folders": [
+        {
+            "path": "PythonChallenges"
+        },
+        {
+            "path": "PyDay1"
+        },
+        {
+            "path": "PyDay2"
+        },
+        {
+            "path": "PyDay3"
+        },
+        {
+            "path": "PyImporting"
+        }
+    ],
+    "settings": {
+        "git.ignoreLimitWarning": true
+    }
+}
