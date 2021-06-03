@@ -1,0 +1,15 @@
+td {
+    color: orange
+}
+
+.champ {
+    color: rgb(255, 0, 140);
+}
+
+thead.champ {
+    background-color: palegreen;
+}
+
+ul.champ {
+    background-color: red;
+}

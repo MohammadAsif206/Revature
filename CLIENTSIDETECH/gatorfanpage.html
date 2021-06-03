@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- a good web page should start wht doctype
+lets the browser know fo rcertain this is HTML 5. Browsers are vert fault tolerant. Even if
+your code is wrong the browser will insert tags or take guesses to try and make it work-->
+
+<html lang="en">
+<!--html is the ROOT tag. All other html in your web page go in here-->
+
+<head>
+    <!-- will contain meta-data. things like look up tags for search. incluce css and links to external files-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" <title>Gator Footbal</title>
+    <style>
+        /**  selectors {key: value} called properties is CSS*/
+        
+        p {
+            color: cadetblue;
+            background-color: grey;
+        }
+        
+        #colerme {
+            color: brown;
+        }
+        
+        #colerme2 {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- most of your HTML will go here in the body tag. The actual content of the web-->
+    <h1 style="color: rebeccapurple;">Gator Footbal</h1>
+    <p>The Gators are the footbal for University of Florida. They play the SEC <br> Their biggest rivals are FSU, UGA and LSU. The
+        <bold>IS</bold> univesity is know for inventing the dring getorate
+
+    </p>
+    <h3 style="color: rgb(89, 0, 255);">Heisman winners</h3>
+    <ul style="champ">
+        <li>SS</li>
+        <li id="colerme2">TT</li>
+        <li id="colerme">DD</li>
+    </ul>
+
+    <h3 class="champ">National Chapionship</h3>
+    <table>
+        <thead class="champ">
+            <th>Opponet</th>
+            <th>Year</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>FSU</td>
+                <td>2010</td>
+            </tr>
+            <tr>
+                <td>UTD</td>
+                <td>2019</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <img src="photo.jpg" height="30%" width="30%" alt=" picture not loaded">
+
+
+
+
+</body>
+
+</html>

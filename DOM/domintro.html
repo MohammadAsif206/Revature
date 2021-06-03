@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Intro</title>
+</head>
+
+<body>
+    <!-- three ways to put JS into our HTML
+    1. inline JS
+    2. internal JS
+    3. external reference on outside 
+    -->
+    <h1 onclick="console.log('InLine JS')">In line JS</h1>
+    <h1 onclick="internal()">Internal JS</h1>
+    <h1 onclick="external()">External JS</h1>
+
+</body>
+<script>
+    function internal() {
+        alert("Internal JS")
+
+    }
+</script>
+<script src="external.js"></script>
+
+</html>
+
+
+
+
+
+
+
+<!--
+    DOM
+        - Docmument Object Model
+        - Tree diagram of the html elements in an html
+-->

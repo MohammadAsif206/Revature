@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+
+<body>
+    <button id="helloBtn">Hello !!!</button>
+
+    <h1 id="greetHeading">You have not clicked on hello</h1>
+
+</body>
+<script>
+    function printHello() {
+        console.log("Hello")
+        const heading = document.getElementById("greetHeading").innerHTML = " Hello , you clicked me"
+    }
+    const helloBtn = document.getElementById("helloBtn")
+    helloBtn.addEventListener("click", printHello);
+    // addEventListener("event to listen for on the element", function to execute that happens)
+</script>
+
+
+
+</html>
+
+
+
+<!--
+    JS is an EVENT-DRIVEN language
+        - JS is used to listen for events and then executes functios when those event occur
+-->
