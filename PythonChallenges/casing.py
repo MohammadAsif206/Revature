@@ -8,10 +8,68 @@ import unittest
 
 # casing('registeredUser','camelCase','kebab-case') -> registered-user
 def casing(word, initial, target):
-    list = []
+    
+    letter = []
     for c in word:
-        if c[0].islower() and c.contains("A-Z"):
-            initial = 'camelCase'
+        if c.isupper():
+            letter.append('_')
+            letter.append(c)
+        else:
+        	letter.append(c)
+    #camelCase to PascalCase
+    if initial == "camelCase" and target == "PascalCase":
+    	print(letter)
+    	out = "".join(letter).split("_")
+    	a = str(out[0])
+    	b = a.capitalize()
+    	return (b+out[1])
+    #camelCase to kebab-case
+    if initial == "camelCase" and target == "kebab-case":
+        out = "".join(letter).split("_")
+        upperToLower = str(out[1])
+        lower_case = upperToLower.lower()
+        result = str(out[0]) + "-" + lower_case
+        print(result)
+        return result
+    #camelCase to snake_case
+    if initial == "camelCase" and target == "snake_case":
+        out = "".join(letter).split("_")
+        upperToLower = str(out[1])
+        lower_case = upperToLower.lower()
+        result = str(out[0]) + "_" + lower_case
+        print(result)
+        return result
+    #word is GreenApple
+    letter1 = []
+    for p in word:
+      if p.isupper():
+        letter1.append("_")
+        letter1.append(p)
+      else:
+        letter1.append(p)
+    if initial == "PascalCase" and target == "snake_case":
+      out1 = "".join(letter1).split("_")
+      firstWord = str(out1[1])
+      secondWord = str(out1[2])
+      result1 = firstWord.lower()+ "_" + secondWord.lower()
+      print(result1)
+      return result1
+    if initial == "PascalCase" and target == "kebab-case":
+      out1 = "".join(letter1).split("_")
+      firstWord = str(out1[1])
+      secondWord = str(out1[2])
+      result1 = firstWord.lower()+ "-" + secondWord.lower()
+      print(result1)
+      return result1
+    if initial == "PascalCase" and target == "camelCase":
+      out1 = "".join(letter1).split("_")
+      firstWord = str(out1[1])
+      secondWord = str(out1[2])
+      secondWordCapitalized = secondWord.capitalize()
+      result1 = firstWord.lower()+ secondWordCapitalized
+      print(result1)
+      return result1
+            
     
 
 
@@ -33,7 +91,7 @@ class TestMethods(unittest.TestCase):
 
     def test_Pascal_to_snake(self):
         result = casing('GreenApple','PascalCase','snake_case')
-        self.assertEquals(result,'Green_Apple')
+        self.assertEquals(result,'green_apple')
 
     def test_Pascal_to_kebab(self):
         result = casing('GreenApple','PascalCase','kebab-case')

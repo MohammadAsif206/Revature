@@ -7,7 +7,7 @@ class String:
         return 'Object: {}'.format(self.greeting )
 
     # to allow concatination
-    def __add__(self, other):
+    def __add__(self, other) -> str:
         return self.greeting + other
 
 
