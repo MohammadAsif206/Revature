@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 1em;
+        }
+        
+        table {
+            width: 100%;
+            background-color: olive;
+        }
+        
+        th {
+            height: 10x;
+            margin: 10px;
+            background-color: rgb(128, 173, 97);
+            text-align: justify;
+            padding: 10px;
+        }
+        
+        td {
+            background-color: mediumspringgreen;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #1a8f75;
+        }
+    </style>
+
+    <title>Magic</title>
+    <h1>Magic The Gathering Game Information</h1>
+    <p> Magic gethering provides inofrmation about games, for more Information you can visit their website</p>
+    <p>
+        <a href="https://www.magicthegathering.io/"> @ Visit Me</a>
+    </p><br>
+</head>
+
+<body>
+
+    <button onclick="getAllMagic()">Get All Magic</button>
+    <input type="text" id="nameInput" placeholder="enter Id">
+
+    <button onclick="getCountryName()">Get Magic by ID</button><br>
+
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Number</th>
+            <th>Type</th>
+
+        </thead>
+        <tbody>
+            <tr id="countryRow"></tr>
+        </tbody> <br>
+    </table>
+
+
+</body>
+<script>
+    const nameInput = document.getElementById("nameInput");
+    const countryRow = document.getElementById("countryRow");
+    const magicButton = document.getElementById("magicButton");
+    //added now 
+    async function getAllMagic() {
+        const res = await fetch("https://api.magicthegathering.io/v1/cards");
+        const cards = await res.json()
+        let innerRows = ""
+            //console.log(books);
+        for (let mycard of cards[100].card) {
+            innerRows += `<tr>
+                <td>${mycard.card.id} </td>
+                <td>${mycard.card.name}</td>
+                <td>${mycard.card.artist}</td>
+                <td>${mycard.card.number}</td>
+                <td>${mycard.card.type}</td>
+                </tr>`
+
+
+        }
+        //magicButton.innerHTML = innerRows
+    }
+    //getAllMagic();
+
+
+    //end of added now
+    async function getCountryName() {
+        const httpResponse = await fetch(`https://api.magicthegathering.io/v1/cards/${nameInput.value}`);
+        const number = await httpResponse.json();
+        console.log(number);
+        countryRow.innerHTML = `<td>${number.card.id}</td>${number.card.name}<td>${number.card.artist}</td>${number.card.number}<td>${number.card.type}</td>`
+    }
+</script>
+
+</html>
+
+<!--
+    async function ALWAYS return a promise
+    asynct function f(){
+        return "1";
+    }
+    async function g(){
+        console.log( await f())
+    }
+    g()
+
+-->

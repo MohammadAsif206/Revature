@@ -28,6 +28,7 @@
         task.push(taskInput.value);
         //taskList.innerHTML = taskList.innerHTML + `<li> ${taskList.value}`
         taskList.innerHTML = task.map(t => `<li>${t}</li>`).join("");
+        //to make input text box clear previous input
         taskInput.value = " "
     }
 </script>

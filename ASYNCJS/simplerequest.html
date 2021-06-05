@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <button onclick="getThatPokemon()">Get Pokemon</button>
+    <button onclick="getThatPokemon2()">Get Pokemon2</button>
+
+</body>
+<script>
+    // async is a keyword we can put in from of functions
+    // this function calls function that return promises and make take a while to get actual thing we want
+    async function getThatPokemon() {
+        // getting an HTTP res can sometimes take a realy long time several secons
+        // it would be a realy bad user expereince if JS did not work while waiting on this res
+        // fetch does not return a res it returns a promise
+        // a promise is like an empty object taht will on day hold the value we want
+        //
+        //wait is another keyword that 'tells JS to wait for the promise to have a real value'
+        // rest of codes
+        const httpResponse = await fetch("https://restcountries.eu/rest/v2/name/afg"); //returs an HTT response. js will be able to execute other codes whiel waiting for the promise to become real
+        console.log(httpResponse);
+
+        const body = await httpResponse.json(); // return the body as JSON if it is a JSON
+        console.log(httpResponse);
+
+        // when yu maek an HTTP req you get the headers first
+        // then the body
+        // you have to await for both
+    }
+    // async await is a es6 feature. only been in JS since 2015
+    async function getThatPokemon2() {
+        //chaining with callback functions
+        // has the same async non-event queue non-blocking qualities
+        await fetch("https://www.fruityvice.com").then((httpResponse) => {
+            console.log(httpResponse);
+            return httpResponse.json();
+
+        }).then((body) => {
+            console.log(body)
+        });
+
+
+    }
+    // allow you to write code that looks synchronous
+    // howerver under hood is aysnc and non-blocking
+</script>
+
+</html>
